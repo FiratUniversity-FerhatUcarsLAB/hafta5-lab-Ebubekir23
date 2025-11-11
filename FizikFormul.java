@@ -1,126 +1,145 @@
 /*
- * Ad Soyad: [ADINIZI BURAYA YAZIN]
- * Ogrenci No: [OGRENCI NUMARANIZI BURAYA YAZIN]
- * Tarih: [TARIHI BURAYA YAZIN]
- * Aciklama: Gorev 2 - Fizik Formulu Asistani
- *
- * Bu program temel fizik formullerini kullanarak
- * hesaplamalar yapar.
+ * Ad Soyad: Ebubekir Yılmaz
+ * Öğrenci No: 250541051
+ * Tarih: 9.11.2025
+ * Açıklama: Fizik Formül Hesaplama
+ * Bu program kullanıcıdan istediği değerleri aldıktan sonra
+ * metot yardımıyla hız, ivme, kuvvet, iş, güç, kinetik enerji,
+ * potansiyel enerji ve momentum formüllerini hesaplayıp ekrana yazdırır.
  */
 
 import java.util.Scanner;
 
-public class FizikFormul {
+public class FizikFormulAsistani {
 
-    // Sabit: Yercekimi ivmesi
-    final static double GRAVITY = 9.8; // m/s²
+	// GRAVITY sabiti
+	final static double GRAVITY = 9.8;
 
-    // METOT 1: Hız hesapla (v = s / t)
-    public static double calculateVelocity(double distance, double time) {
-        // v = mesafe / zaman
-        return 0.0; // Degistirin
-    }
+	// hız
+	public static double hizFormulu(double displacement, double time) {
+		return displacement / time;
+	}
 
-    // METOT 2: İvme hesapla (a = Δv / t)
-    public static double calculateAcceleration(double velocityChange, double time) {
-        // a = hiz degisimi / zaman
-        return 0.0; // Degistirin
-    }
+	// ivme
+	public static double ivmeFormulu(double speed, double time) {
+		return speed / time;
 
-    // METOT 3: Kuvvet hesapla (F = m * a)
-    public static double calculateForce(double mass, double acceleration) {
-        // F = kutle * ivme
-        return 0.0; // Degistirin
-    }
+	}
 
-    // METOT 4: İş hesapla (W = F * d)
-    public static double calculateWork(double force, double distance) {
-        // W = kuvvet * mesafe
-        return 0.0; // Degistirin
-    }
+	// kuvvet
+	public static double kuvvetFormulu(double mass, double acceleration) {
+		return mass * acceleration;
 
-    // METOT 5: Güç hesapla (P = W / t)
-    public static double calculatePower(double work, double time) {
-        // P = is / zaman
-        return 0.0; // Degistirin
-    }
+	}
 
-    // METOT 6: Kinetik enerji (KE = 0.5 * m * v²)
-    public static double calculateKineticEnergy(double mass, double velocity) {
-        // KE = 0.5 * kutle * (hiz * hiz)
-        // Math.pow(velocity, 2) kullanabilirsiniz
-        return 0.0; // Degistirin
-    }
+	// iş
+	public static double isFormulu(double force, double distance) {
+		return force * distance;
 
-    // METOT 7: Potansiyel enerji (PE = m * g * h)
-    public static double calculatePotentialEnergy(double mass, double gravity, double height) {
-        // PE = kutle * yercekimi * yukseklik
-        return 0.0; // Degistirin
-    }
+	}
 
-    // METOT 8: Momentum (p = m * v)
-    public static double calculateMomentum(double mass, double velocity) {
-        // p = kutle * hiz
-        return 0.0; // Degistirin
-    }
+	// güç
+	public static double gucFormulu(double work, double time) {
+		return work / time;
 
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+	}
 
-        System.out.println("=== FIZIK FORMUL ASISTANI ===");
-        System.out.println();
+	// kinetik enerji
+	public static double kinetikEnerjiFormulu(double mass, double velocity) {
+		return 0.5 * mass * Math.pow(velocity, 2);
 
-        // TEMEL OLCUMLER
-        System.out.println("TEMEL OLCUMLER:");
-        System.out.print("Kutle (kg): ");
-        double mass = input.nextDouble();
+	}
 
-        System.out.print("Mesafe (m): ");
-        double distance = input.nextDouble();
+	// potansiyel enerji
+	public static double potansiyelEnerjiFormulu(double mass, double height) {
+		return mass * GRAVITY * height;
 
-        System.out.print("Zaman (s): ");
-        double time = input.nextDouble();
+	}
 
-        System.out.print("Hiz degisimi (m/s): ");
-        double deltaV = input.nextDouble();
+	// momentum
+	public static double momentumFormulu(double mass, double velocity) {
+		return mass * velocity;
+	}
 
-        System.out.print("Yukseklik (m): ");
-        double height = input.nextDouble();
+	public static void main(String[] args) {
+		Scanner inputScanner = new Scanner(System.in);
 
-        // HESAPLAMALARI YAP - Metotlari cagir
-        // 1. Hiz (v) hesaplanmali (KE ve Momentum icin gerekli)
-        // 2. Ivme (a) hesaplanmali (Kuvvet icin gerekli)
-        // 3. Kuvvet (F) hesaplanmali (Is icin gerekli)
-        // 4. Is (W) hesaplanmali (Guc icin gerekli)
-        // ... digerlerini hesaplayin
-  
+		System.out.println("-----Fizik Formül Asistanı-----\n");
 
+		// hız
+		System.out.print("Yer Değiştirme: ");
+		double yerdegistirme = inputScanner.nextDouble();
+		System.out.print("Zaman: ");
+		double zaman = inputScanner.nextDouble();
 
-        // SONUCLARI YAZDIR
-        System.out.println("\n========================================");
-        System.out.println("        HESAPLAMA SONUCLARI");
-        System.out.println("========================================");
+		double hiz = hizFormulu(yerdegistirme, zaman);
+		System.out.printf("Hız: %.2f m/s\n\n", hiz);
 
-        System.out.println("\nHIZ ve HAREKET:");
-        System.out.printf("  Hiz (v = s/t)             : %.2f m/s\n", velocity);
-        System.out.printf("  Ivme (a = Δv/t)           : %.2f m/s²\n", acceleration);
+		// ivme
+		System.out.print("Hız Değişimi: ");
+		double hizdegisimi = inputScanner.nextDouble();
+		System.out.print("Zaman: ");
+		double zaman2 = inputScanner.nextDouble();
 
-        System.out.println("\nKUVVET ve IS:");
-        System.out.printf("  Kuvvet (F = m*a)          : %.2f N\n", force);
-        System.out.printf("  Is (W = F*d)              : %.2f J\n", work);
-        System.out.printf("  Guc (P = W/t)             : %.2f W\n", power);
+		double ivme = ivmeFormulu(hizdegisimi, zaman2);
+		System.out.printf("İvme: %.2f m/s²\n\n", ivme);
 
-        System.out.println("\nENERJI:");
-        System.out.printf("  Kinetik Enerji (KE)       : %.2f J\n", kineticEnergy);
-        System.out.printf("  Potansiyel Enerji (PE)    : %.2f J\n", potentialEnergy);
-        // Toplam enerji = KE + PE
-        System.out.printf("  Toplam Enerji             : %.2f J\n", (kineticEnergy + potentialEnergy)); 
+		// kuvvet
+		System.out.print("Kütle: ");
+		double kutle = inputScanner.nextDouble();
+		System.out.print("İvme: ");
+		double ivme2 = inputScanner.nextDouble();
 
-        System.out.println("\nMOMENTUM:");
-        System.out.printf("  Momentum (p = m*v)        : %.2f kg·m/s\n", momentum);
+		double kuvvet = kuvvetFormulu(kutle, ivme2);
+		System.out.printf("Kuvvet: %.2f N\n\n", kuvvet);
 
-        System.out.println("\n========================================");
+		// iş
+		System.out.print("Kuvvet: ");
+		double kuvvet2 = inputScanner.nextDouble();
+		System.out.print("Mesafe: ");
+		double mesafe = inputScanner.nextDouble();
 
-        input.close();
-    }
+		double is = isFormulu(kuvvet2, mesafe);
+		System.out.printf("İş: %.2f J\n\n", is);
+
+		// güç
+		System.out.print("İş: ");
+		double is2 = inputScanner.nextDouble();
+		System.out.print("Zaman: ");
+		double zaman3 = inputScanner.nextDouble();
+
+		double guc = gucFormulu(is2, zaman3);
+		System.out.printf("Güç: %.2f W\n\n", guc);
+
+		// kinetik enerji
+		System.out.print("Kütle: ");
+		double kutle2 = inputScanner.nextDouble();
+		System.out.print("Hız: ");
+		double hiz2 = inputScanner.nextDouble();
+
+		double kinetikenerji = kinetikEnerjiFormulu(kutle2, hiz2);
+		System.out.printf("Kinetik Enerji: %.2f J\n\n", kinetikenerji);
+
+		// potansiyel enerji
+		System.out.print("Kütle: ");
+		double kutle3 = inputScanner.nextDouble();
+		System.out.print("Yükseklik: ");
+		double yukseklik = inputScanner.nextDouble();
+
+		double potansiyelenerji = potansiyelEnerjiFormulu(kutle3, yukseklik);
+		System.out.printf("Potansiyel Enerji: %.2f J\n\n", potansiyelenerji);
+
+		// momentum
+		System.out.print("Kütle: ");
+		double kutle4 = inputScanner.nextDouble();
+		System.out.print("Hız: ");
+		double hiz3 = inputScanner.nextDouble();
+
+		double momentum = momentumFormulu(kutle4, hiz3);
+		System.out.printf("Momentum: %.2f N*s\n", momentum);
+
+		inputScanner.close();
+
+	}
+
 }
